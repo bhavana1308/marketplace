@@ -1,0 +1,31 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.launchcode.marketplace.mybatis.ProductsMapper">
+
+    <resultMap id="resultProducts" type="org.launchcode.marketplace.model.Product" autoMapping="false">
+        <result property="productId" column="productId"/>
+        <result property="productName" column="productName"/>
+        <result property="price" column="price"/>
+        <result property="rating" column="rating"/>
+        <result property="reviewCount" column="reviewCount"/>
+        <result property="description" column="description"/>
+        <result property="quantityAvailable" column="quantityAvailable"/>
+        <result property="imageUrl" column="imageUrl"/>
+    </resultMap>
+
+    <select id="getAllFromProducts" resultMap="resultProducts">
+        SELECT * FROM Product;
+    </select>
+
+    <select id="getByProductName" resultMap="resultProducts">
+        SELECT * FROM product WHERE productName = #{productName};
+    </select>
+
+    <select id="getProductsByCategory" resultMap="resultProducts">
+        SELECT * FROM product WHERE categoryId = #{categoryId}
+    </select>
+
+</mapper>

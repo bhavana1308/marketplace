@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Category</title>
+</head>
+<body>
+<div th:include="fragments/logout-fragment :: #logout-button"></div>
+<h1>Add Category</h1>
+<form method="post" th:action="@{/categories/add}" th:object="${category}">
+    <label for="categoryName">Category Name:</label>
+    <input id="categoryName" th:field="*{categoryName}" type="text"/>
+
+    <label for="description">Description:</label>
+    <input id="description" th:field="*{description}" type="text"/>
+
+    <button type="submit">Add Category</button>
+</form>
+</body>
+</html>

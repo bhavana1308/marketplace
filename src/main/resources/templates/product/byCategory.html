@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="/static/css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}">
+<head>
+    <title>Products by Category</title>
+</head>
+<body>
+<div th:include="fragments/logout-fragment :: #logout-button"></div>
+<h1>Products in Category <span th:text="${categoryName}"></span></h1>
+<table>
+
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Rating</th>
+        <th>ReviewCount</th>
+        <th>Description</th>
+        <th>Quantity Available</th>
+        <th>Image</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="product : ${products}">
+
+        <td th:text="${product.productId}"></td>
+        <td th:text="${product.productName}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.rating}"></td>
+        <td th:text="${product.reviewCount}"></td>
+        <td th:text="${product.description}"></td>
+        <td th:text="${product.quantityAvailable}"></td>
+        <td>
+            <img alt="Product Image" height="100" th:src="${product.imageUrl}" width="100">
+        </td>
+        <td>
+            <form method="post" th:action="@{/cart/add}" th:object="${cartList}">
+                <input name="productId" type="hidden" value="1"/>
+                <input min="1" name="quantity" type="number" value="1"/>
+                <button type="submit">Add to Cart</button>
+            </form>
+
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+<p><a th:href="@{/productList}">Go To ProductList</a></p>
+</body>
+</html>

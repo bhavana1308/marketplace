@@ -1,0 +1,40 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+
+
+    <properties resource="application.properties"/>
+
+    <typeAliases>
+        <typeAlias alias="Buyer" type="org.launchcode.marketplace.model.Buyer"/>
+        <typeAlias alias="CartList" type="org.launchcode.marketplace.model.CartList"/>
+        <typeAlias alias="Category" type="org.launchcode.marketplace.model.Category"/>
+        <typeAlias alias="Discount" type="org.launchcode.marketplace.model.Discount"/>
+        <typeAlias alias="Product" type="org.launchcode.marketplace.model.Product"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="${spring.datasource.url}"/>
+                <property name="username" value="${spring.datasource.username}"/>
+                <property name="password" value="${spring.datasource.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="org/launchcode/marketplace/mybatis/BuyerMapper.xml"/>
+        <mapper resource="org/launchcode/marketplace/mybatis/CartListMapper.xml"/>
+        <mapper resource="org/launchcode/marketplace/mybatis/CategoryMapper.xml"/>
+        <mapper resource="org/launchcode/marketplace/mybatis/DiscountsMapper.xml"/>
+        <mapper resource="org/launchcode/marketplace/mybatis/ProductsMapper.xml"/>
+    </mappers>
+
+</configuration>

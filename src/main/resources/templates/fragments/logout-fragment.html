@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<link href="/static/css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Log out
+    </title>
+</head>
+<body>
+
+<div id="logout-button">
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="session-logout-message" id="logout-message" th:if="${sessionLogout}">
+    Session is logged out.Please login to continue.
+</div>
+
+</body>
+</html>

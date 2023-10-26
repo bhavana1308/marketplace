@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Placed</title>
+    <link href="/static/css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div th:include="fragments/logout-fragment :: #logout-button"></div>
+<h1>Thanks for Placing Your Order!</h1>
+<p>Your order has been successfully placed. </p>
+<p><a th:href="@{/productList}">Go back to Product List</a></p>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+</head>
+<body>
+<div th:include="fragments/logout-fragment :: #logout-button"></div>
+<h1>Product Details</h1>
+
+<div th:if="${product}">
+    <h2 th:text="${product.productName}"></h2>
+    <p th:text="'Price: $' + ${product.price}"></p>
+    <p th:text="'Rating: ' + ${product.rating}"></p>
+    <p th:text="'Review Count: ' + ${product.reviewCount}"></p>
+    <p th:text="'Description: ' + ${product.description}"></p>
+    <p th:text="'Quantity Available: ' + ${product.quantityAvailable}"></p>
+    <img alt="Product Image" th:src="${product.imageUrl}">
+
+</div>
+
+<div th:if="${product == null}">
+    <p>Product not found.</p>
+</div>
+</body>
+</html>

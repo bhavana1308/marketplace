@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+    <link href="/static/css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div th:include="fragments/logout-fragment :: #logout-button"></div>
+<div class="container">
+    <h1>Product List</h1>
+    <div class="product-list">
+        <div class="product-item" th:each="product : ${products}">
+            <img alt="Product Image" class="product-image" th:src="${product.imageUrl}">
+            <h2 th:text="${product.productName}"></h2>
+            <p th:text="'Price: $' + ${product.price}"></p>
+            <p th:text="'Rating: ' + ${product.rating}"></p>
+            <p th:text="'Review Count: ' + ${product.reviewCount}"></p>
+            <p th:text="${product.description}"></p>
+            <p th:text="'Quantity Available: ' + ${product.quantityAvailable}"></p>
+            <form method="post" th:action="@{/cart/add}" th:object="${cartList}">
+                <input name="productId" th:value="${product.productId}" type="hidden"/>
+                <input min="1" name="quantity" type="number" value="1"/>
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+    <p><a th:href="@{/product/category/1}">List By Category Shirts</a></p>
+    <p><a th:href="@{/product/category/2}">List By Category Dresses</a></p>
+    <p><a th:href="@{/product/category/3}">List By Category Electronics</a></p>
+</div>
+</body>
+</html>

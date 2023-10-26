@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    <link href="/static/css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div th:include="fragments/logout-fragment :: #logout-button"></div>
+<h1>Shopping Cart</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cartItem : ${cartItems}">
+        <td th:text="${cartItem.Product.productName}"></td>
+        <td th:text="'$' + ${cartItem.product.price}"></td>
+        <td th:text="${cartItem.quantity}"></td>
+        <td th:text="'$' + ${cartItem.product.price * cartItem.quantity}"></td>
+        <td>
+            <form method="post" th:action="@{/cart/delete}" th:object="${cartItem}">
+                <input name="cartItemId" th:value="${cartItem.cartId}" type="hidden"/>
+                <button type="submit">Delete from Cart</button>
+            </form>
+        </td>
+    </tr>
+
+
+    </tbody>
+</table>
+<p th:if="${cartItems.isEmpty()}">Your shopping cart is empty.</p>
+<p>Total Price:
+    <span th:text="'$' + ${totalPrice}"></span>
+</p>
+<p><a th:href="@{/productList}">Go To ProductList</a></p>
+
+<form action="/cart/checkout" method="post">
+    <button type="submit">Checkout</button>
+</form>
+</body>
+</html>
+

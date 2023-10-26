@@ -1,0 +1,39 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.launchcode.marketplace.mybatis.BuyerMapper">
+
+    <insert id="insertBuyer" parameterType="org.launchcode.marketplace.model.Buyer">
+        INSERT INTO buyer (email, fName, lName, password)
+        VALUES (#{email}, #{firstName}, #{lastName}, #{password});
+    </insert>
+
+    <update id="updateBuyer" parameterType="org.launchcode.marketplace.model.Buyer">
+        UPDATE buyer SET email=#{email}, fName =#{firstName}, lName =#{lastName} , password=#{password} WHERE buyerId =
+        #{buyerId};
+    </update>
+
+
+    <resultMap id="resultBuyer" type="org.launchcode.marketplace.model.Buyer" autoMapping="false">
+        <result property="buyerId" column="buyerId"/>
+        <result property="email" column="email"/>
+        <result property="firstName" column="fName"/>
+        <result property="lastName" column="lName"/>
+        <result property="password" column="password"/>
+    </resultMap>
+
+    <select id="getAllFromBuyer" resultMap="resultBuyer">
+        SELECT * FROM Buyer;
+    </select>
+
+    <select id="getBuyerByEmailAndPassword" resultMap="resultBuyer">
+        SELECT * FROM buyer
+        WHERE email = #{email} AND password = #{password}
+    </select>
+
+    <select id="getByBuyerId" parameterType="int" resultMap="resultBuyer">
+        SELECT * FROM Buyer WHERE ID = #{buyerId};
+    </select>
+</mapper>

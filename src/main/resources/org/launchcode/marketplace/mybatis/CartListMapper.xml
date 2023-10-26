@@ -1,0 +1,42 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.launchcode.marketplace.mybatis.CartListMapper">
+
+    <delete id="deleteByCartListId" parameterType="int">
+        DELETE from CartList WHERE cartId = #{cartId};
+    </delete>
+
+    <resultMap id="resultCartList" type="org.launchcode.marketplace.model.CartList" autoMapping="false">
+        <result property="cartId" column="cartId"/>
+        <result property="productId" column="productId"/>
+        <result property="quantity" column="quantity"/>
+        <association property="product" javaType="org.launchcode.marketplace.model.Product">
+            <id property="productId" column="productId"/>
+            <result property="productName" column="productName"/>
+            <result property="price" column="price"/>
+        </association>
+    </resultMap>
+
+    <select id="getAllFromCartList" resultMap="resultCartList">
+        SELECT * FROM CartList;
+    </select>
+
+    <select id="getByCartListId" parameterType="int" resultMap="resultCartList">
+        SELECT * FROM CartList WHERE cartId = #{cartId};
+    </select>
+
+    <insert id="insertCartList" parameterType="org.launchcode.marketplace.model.CartList">
+        INSERT INTO cartList (productId, quantity) VALUES (#{productId}, #{quantity});
+    </insert>
+
+
+    <select id="getCartItemsWithProducts" resultMap="resultCartList">
+        SELECT CartList.cartId, CartList.productId, CartList.quantity, Product.productName, Product.price
+        FROM CartList
+        JOIN Product ON CartList.productId = Product.productId;
+    </select>
+
+</mapper>

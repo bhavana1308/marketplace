@@ -1,0 +1,33 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.launchcode.marketplace.mybatis.DiscountsMapper">
+
+    <insert id="insertDiscounts" parameterType="org.launchcode.marketplace.model.Discount">
+        INSERT INTO discount (discountName,description,discountPercent)
+        VALUES (#{discountName}, #{description}, #{discountPercent});
+    </insert>
+
+    <update id="updateDiscounts" parameterType="org.launchcode.marketplace.model.Discount">
+        UPDATE discount SET discountName = #{discountName}, description = #{description},
+        discountPercent=#{discountPercent} WHERE discountId = #{discountId};
+    </update>
+
+
+    <resultMap id="resultDiscounts" type="org.launchcode.marketplace.model.Discount" autoMapping="false">
+        <result property="discountId" column="discountId"/>
+        <result property="discountName" column="discountName"/>
+        <result property="description" column="description"/>
+        <result property="discountPercent" column="discountPercent"/>
+    </resultMap>
+
+    <select id="getAllFromDiscounts" resultMap="resultDiscounts">
+        SELECT * FROM Discount;
+    </select>
+
+    <select id="getByDiscountsId" parameterType="int" resultMap="resultDiscounts">
+        SELECT * FROM Discount WHERE discountId = #{discountId};
+    </select>
+</mapper>
