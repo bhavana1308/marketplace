@@ -9,6 +9,7 @@ function App() {
     <Routes>
       <Route path="/login" element={<LoginForm />} />
       <Route path="/productList" />
+      <Route path="/login/loginError" />
     </Routes>
   );
 }

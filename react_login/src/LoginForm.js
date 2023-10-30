@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './LoginForm.css'
 
+
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,6 +20,7 @@ function LoginForm() {
     })
       .then((response) => {
         if (response.url.endsWith('/login/loginError')) {
+          window.location.href = 'http://localhost:8080/login/loginError';
           console.error('Authentication failed');
         } else {
           window.location.href = 'http://localhost:8080/productList';
