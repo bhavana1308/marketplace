@@ -4,6 +4,8 @@ The Marketplace application is a simple web-based platform that seamlessly integ
 ## Tech Stack
 
 - Java
+- JavaScript
+- React
 - Spring Boot
 - MyBatis
 - Thymeleaf
