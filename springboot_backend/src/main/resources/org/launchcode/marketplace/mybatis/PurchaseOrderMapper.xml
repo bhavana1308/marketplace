@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.launchcode.marketplace.mybatis.PurchaseOrderMapper">
+
+    <resultMap id="resultPurchaseOrder" type="org.launchcode.marketplace.model.PurchaseOrder" autoMapping="false">
+        <id property="orderId" column="orderId"/>
+        <result property="orderNumber" column="orderNumber"/>
+        <association property="buyer" javaType="org.launchcode.marketplace.model.Buyer">
+            <id property="buyerId" column="buyerId"/>
+        </association>
+    </resultMap>
+
+    <select id="selectPurchaseOrderById" parameterType="int" resultMap="resultPurchaseOrder">
+        SELECT * FROM PurchaseOrder WHERE orderId = #{orderId}
+    </select>
+
+    <select id="getAllPurchaseOrders" resultMap="resultPurchaseOrder">
+        SELECT PurchaseOrder.orderId, PurchaseOrder.orderNumber, Buyer.buyerId
+        FROM PurchaseOrder
+        LEFT JOIN Buyer ON PurchaseOrder.buyerId = Buyer.buyerId
+    </select>
+
+
+    <update id="updatePurchaseOrder" parameterType="org.launchcode.marketplace.model.PurchaseOrder">
+        UPDATE PurchaseOrder SET buyerId = #{buyerId}, orderNumber = #{orderNumber} WHERE orderId = #{orderId}
+    </update>
+
+    <delete id="deletePurchaseOrder">
+        DELETE FROM PurchaseOrder WHERE orderId = #{orderId}
+    </delete>
+
+    <insert id="insertPurchaseOrder" parameterType="org.launchcode.marketplace.model.PurchaseOrder">
+        INSERT INTO PurchaseOrder(orderNumber, buyerId) VALUES (#{orderNumber}, #{buyer.buyerId})
+    </insert>
+
+
+</mapper>

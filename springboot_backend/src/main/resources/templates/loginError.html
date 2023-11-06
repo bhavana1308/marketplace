@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Login Error</title>
 </head>
 <body>
-<div th:include="fragments/logout-fragment :: #logout-button"></div>
+<div th:replace="fragments/logout-fragment :: #logout-button"></div>
 <h2>Login Error</h2>
 <p>Authentication failed. Please check your email and password and try again.</p>
-<a href="/login">Go back to login</a>
+<a class="button-link" href="/login">Go back to login</a>
 </body>
 </html>

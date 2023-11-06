@@ -5,7 +5,11 @@
     <title>Products by Category</title>
 </head>
 <body>
-<div th:include="fragments/logout-fragment :: #logout-button"></div>
+<div th:replace="fragments/logout-fragment :: #logout-button"></div>
+
+<div th:replace="fragments/buyer-info-fragment :: .buyer-info"></div>
+
+
 <h1>Products in Category <span th:text="${categoryName}"></span></h1>
 <table>
 
@@ -39,14 +43,12 @@
             <form method="post" th:action="@{/cart/add}" th:object="${cartList}">
                 <input name="productId" type="hidden" value="1"/>
                 <input min="1" name="quantity" type="number" value="1"/>
-                <button type="submit">Add to Cart</button>
+                <button class="button-link" type="submit">Add to Cart</button>
             </form>
-
         </td>
-
     </tr>
     </tbody>
 </table>
-<p><a th:href="@{/productList}">Go To ProductList</a></p>
+<p><a class="button-link" th:href="@{/productList}">Go To ProductList</a></p>
 </body>
 </html>

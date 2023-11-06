@@ -5,7 +5,8 @@
     <link href="/static/css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-<div th:include="fragments/logout-fragment :: #logout-button"></div>
+<div th:replace="fragments/logout-fragment :: #logout-button"></div>
+
 <h1>All Categories</h1>
 <table>
     <thead>
@@ -23,7 +24,7 @@
     </tr>
     </tbody>
 </table>
-<p><a th:href="@{/categories/add}">Add New Category</a></p>
+<p><a class="button-link" th:href="@{/categories/add}">Add New Category</a></p>
 
 </body>
 </html>

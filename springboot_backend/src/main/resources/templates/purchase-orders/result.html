@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order Placed</title>
+    <link href="/static/css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div th:replace="fragments/logout-fragment :: #logout-button"></div>
+<div th:replace="fragments/buyer-info-fragment :: .buyer-info"></div>
+
+<h1>Thanks for Placing Your Order!</h1>
+<h2>Welcome, <span th:text="${buyerName}"></span>!</h2>
+<p>Your Loyalty Points: <span th:text="${loyaltyPoints}"></span></p>
+
+<p>Your order has been successfully placed. </p>
+<p>Your Order Number is: <span th:text="${orderNumber}"></span></p>
+
+<p><a class="button-link" th:href="@{/productList}">Go back to Product List</a></p>
+<a class="button-link" th:href="@{/buyers/list}">View Buyers</a>
+<p><a class="button-link" th:href="@{/purchase-orders/list}">View Purchase Orders</a></p>
+
+</body>
+</html>

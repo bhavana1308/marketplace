@@ -1,53 +1,50 @@
 html {
-    background-color: #FFC0CB;
-    position: relative;
-}
-
-#logout-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    background-color: #66CDAA;
+    font-size: 16px;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background-color: transparent;
+    background-color: #66CDAA;
     margin: 0;
     padding: 0;
+    color: #333;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #66CDAA;
 
+}
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
     border: 1px solid #fff;
-    background-color: #FFC0CB;
+    background-color: #66CDAA;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 th, td {
     padding: 10px;
     text-align: left;
-    border: 1px solid #ccc;
+    border: 1px solid #fff;
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #66CDAA;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
+tr {
+    background-color: #66CDAA;
 }
 
 tr:hover {
-    background-color: #e0e0e0;
+    background-color: #66CDAA;
 }
 
 .product-image {
@@ -56,3 +53,57 @@ tr:hover {
     margin-right: 20px;
 }
 
+.button-link {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #9370DB;
+    border-radius: 5px;
+    background-color: #DB7093;
+    border-color: #DB7093;
+    padding: 5px 16px;
+
+}
+
+.button-link:hover {
+   background-color: #ad1e23;
+}
+
+#logout-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.buyer-info {
+    display: flex
+    align-items: left;
+    padding: 10px;
+    background-color: #F5DEB3;
+    font-size: 16px;
+ }
+
+div.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: inline-block;
+    width: 150px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+input[type="text"]{
+    width: 30%;
+    height: 20px;
+}
+
+input[type="number"]{
+   width: 10%;
+   height: 20px;
+   margin-bottom: 10px;
+
+}
+
+}

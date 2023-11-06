@@ -13,6 +13,7 @@ import java.util.List;
 @RequestMapping("/buyers")
 public class BuyerController {
 
+    @Autowired
     private final BuyerMapper buyerMapper;
 
     @Autowired
@@ -56,6 +57,12 @@ public class BuyerController {
             return "buyers/error";
 
         }
+    }
+
+    @PostMapping("/delete")
+    public String deleteBuyer(@RequestParam("buyerId") int buyerId) {
+        buyerMapper.deleteBuyer(buyerId);
+        return "redirect:/buyers/list";
     }
 
 

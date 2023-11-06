@@ -1,6 +1,6 @@
 package org.launchcode.marketplace.controller;
 
-import org.launchcode.marketplace.model.Buyer;
+import jakarta.servlet.http.HttpSession;
 import org.launchcode.marketplace.mybatis.BuyerMapper;
 import org.launchcode.marketplace.mybatis.ProductsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class LoginController {
 
+    @Autowired
     private final BuyerMapper buyerMapper;
-
 
     @Autowired
     public LoginController(BuyerMapper buyerMapper, ProductsMapper productsMapper) {
@@ -31,18 +31,16 @@ public class LoginController {
         return "loginError";
     }
 
-
     @PostMapping
-    public String loginDetails(@RequestParam String email, @RequestParam String password) {
-        Buyer buyer = buyerMapper.getBuyerByEmailAndPassword(email, password);
-        if (buyer != null) {
+    public String performLogin(@RequestParam String email, @RequestParam String password, HttpSession session) {
 
-            System.out.println("Authentication successful. Redirecting to productList.");
+        int buyerId = buyerMapper.getBuyerByEmailAndPassword(email, password);
+
+        if (buyerId > 0) {
+            session.setAttribute("buyerId", buyerId);
             return "redirect:/productList";
         } else {
-
-            System.out.println("Authentication failed. Redirecting to loginerror.");
-            return "redirect:/login/loginError";
+            return "loginError";
         }
     }
 

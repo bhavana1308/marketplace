@@ -19,6 +19,7 @@ public class CategoryController {
     @Autowired
     private final CategoryMapper categoryMapper;
 
+    @Autowired
     public CategoryController(CategoryMapper categoryMapper) {
         this.categoryMapper = categoryMapper;
     }

@@ -1,6 +1,6 @@
 
 html {
-    background-color: #FFC0CB;
+    background-color: #66CDAA;
 }
 
 
@@ -33,7 +33,7 @@ body {
 
 label {
     font-weight: bold;
-    color: #444;
+    color: #00000;
 }
 
 
@@ -48,7 +48,7 @@ input[type="password"] {
 
 
 button {
-    background-color: #4CAF50;
+    background-color: #DB7093;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -58,6 +58,22 @@ button {
 
 
 button:hover {
-    background-color: #45a049;
+    background-color: #ad1e23;
+}
+
+.button-link {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #9370DB;
+    border-radius: 5px;
+    background-color: #DB7093;
+    border-color: #DB7093;
+    padding: 5px 16px;
+
+}
+
+.button-link:hover {
+   background-color: #ad1e23;
 }
 

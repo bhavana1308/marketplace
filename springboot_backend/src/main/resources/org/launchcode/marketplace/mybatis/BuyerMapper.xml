@@ -6,15 +6,21 @@
 <mapper namespace="org.launchcode.marketplace.mybatis.BuyerMapper">
 
     <insert id="insertBuyer" parameterType="org.launchcode.marketplace.model.Buyer">
-        INSERT INTO buyer (email, fName, lName, password)
-        VALUES (#{email}, #{firstName}, #{lastName}, #{password});
+        INSERT INTO buyer (email, fName, lName, password,loyaltyPoints)
+        VALUES (#{email}, #{firstName}, #{lastName}, #{password}, #{loyaltyPoints});
     </insert>
 
     <update id="updateBuyer" parameterType="org.launchcode.marketplace.model.Buyer">
-        UPDATE buyer SET email=#{email}, fName =#{firstName}, lName =#{lastName} , password=#{password} WHERE buyerId =
+        UPDATE buyer SET email=#{email}, fName =#{firstName}, lName =#{lastName} , password=#{password} ,
+        loyaltyPoints=#{loyaltyPoints} WHERE buyerId =
         #{buyerId};
     </update>
 
+    <update id="updateBuyerLoyaltyPoints">
+        UPDATE Buyer
+        SET loyaltyPoints = loyaltyPoints + #{loyaltyPoints}
+        WHERE buyerId = #{buyerId}
+    </update>
 
     <resultMap id="resultBuyer" type="org.launchcode.marketplace.model.Buyer" autoMapping="false">
         <result property="buyerId" column="buyerId"/>
@@ -22,18 +28,24 @@
         <result property="firstName" column="fName"/>
         <result property="lastName" column="lName"/>
         <result property="password" column="password"/>
+        <result property="loyaltyPoints" column="loyaltyPoints"/>
     </resultMap>
 
     <select id="getAllFromBuyer" resultMap="resultBuyer">
         SELECT * FROM Buyer;
     </select>
 
-    <select id="getBuyerByEmailAndPassword" resultMap="resultBuyer">
-        SELECT * FROM buyer
+    <select id="getBuyerByEmailAndPassword" resultType="int">
+        SELECT buyerId FROM buyer
         WHERE email = #{email} AND password = #{password}
     </select>
 
-    <select id="getByBuyerId" parameterType="int" resultMap="resultBuyer">
-        SELECT * FROM Buyer WHERE ID = #{buyerId};
+    <select id="getBuyerById" parameterType="int" resultMap="resultBuyer">
+        SELECT * FROM Buyer WHERE buyerId = #{buyerId};
     </select>
+
+    <delete id="deleteBuyer" parameterType="int">
+        DELETE FROM buyer
+        WHERE buyerId = #{buyerId}
+    </delete>
 </mapper>

@@ -6,8 +6,11 @@
     <link href="/static/css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-<div th:include="fragments/logout-fragment :: #logout-button"></div>
+<div th:replace="fragments/logout-fragment :: #logout-button"></div>
+<div th:replace="fragments/buyer-info-fragment ::.buyer-info"></div>
+
 <h1>Shopping Cart</h1>
+
 <table>
     <thead>
     <tr>
@@ -18,6 +21,7 @@
     </tr>
     </thead>
     <tbody>
+
     <tr th:each="cartItem : ${cartItems}">
         <td th:text="${cartItem.Product.productName}"></td>
         <td th:text="'$' + ${cartItem.product.price}"></td>
@@ -26,7 +30,7 @@
         <td>
             <form method="post" th:action="@{/cart/delete}" th:object="${cartItem}">
                 <input name="cartItemId" th:value="${cartItem.cartId}" type="hidden"/>
-                <button type="submit">Delete from Cart</button>
+                <button class="button-link" type="submit">Delete from Cart</button>
             </form>
         </td>
     </tr>
@@ -38,11 +42,10 @@
 <p>Total Price:
     <span th:text="'$' + ${totalPrice}"></span>
 </p>
-<p><a th:href="@{/productList}">Go To ProductList</a></p>
 
-<form action="/cart/checkout" method="post">
-    <button type="submit">Checkout</button>
-</form>
+<p><a class="button-link" th:href="@{/productList}">Go To ProductList</a></p>
+<a class="button-link" th:href="@{/checkout/form}">Go to Checkout Form</a>
+
 </body>
 </html>
 

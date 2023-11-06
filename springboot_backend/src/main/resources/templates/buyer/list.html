@@ -16,6 +16,7 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Password</th>
+        <th>Loyalty Points</th>
     </tr>
     </thead>
     <tbody>
@@ -25,11 +26,19 @@
         <td th:text="${buyer.firstName}"></td>
         <td th:text="${buyer.lastName}"></td>
         <td th:text="${buyer.password}"></td>
+        <td th:text="${buyer.loyaltyPoints}"></td>
+        <td>
+            <form method="post" th:action="@{/buyers/delete}" th:object="${buyer}">
+                <input name="buyerId" th:value="${buyer.buyerId}" type="hidden"/>
+                <button class="button-link" type="submit">Delete Buyer</button>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>
 
-<p><a th:href="@{/buyers/add}">Add New Buyer</a></p>
-<p><a th:href="@{/buyers/edit}">Update Buyer</a></p>
+<p><a class="button-link" th:href="@{/buyers/add}">Add New Buyer</a></p>
+<p><a class="button-link" th:href="@{/buyers/edit}">Update Buyer</a></p>
+
 </body>
 </html>

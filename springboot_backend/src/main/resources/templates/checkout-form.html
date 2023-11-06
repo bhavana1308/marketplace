@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Checkout</title>
+    <link href="/static/css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div th:replace="fragments/logout-fragment :: #logout-button"></div>
+<div th:replace="fragments/buyer-info-fragment :: .buyer-info"></div>
+
+<h1>Checkout Form</h1>
+<p>Purchase Amount: $<span th:text="${purchaseAmount}"></span></p>
+<p>Loyalty Points Earned: <span th:text="${loyaltyPointsEarned}"></span></p>
+
+
+<form method="post" th:action="@{/checkout/process}">
+    <input name="buyerId" type="hidden" value="1">
+    <input name="purchaseAmount" type="hidden" value="1">
+    <button class="button-link" type="submit">Process Checkout</button>
+</form>
+
+<p><a class="button-link" th:href="@{/cart}">Back to Cart</a></p>
+
+</body>
+</html>

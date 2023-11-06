@@ -8,13 +8,16 @@ public class Buyer {
     private String fName;
     private String lName;
     private String password;
+    private int loyaltyPoints;
 
-    public Buyer(int buyerId, String email, String fName, String lName, String password) {
+
+    public Buyer(int buyerId, String email, String fName, String lName, String password, int loyaltyPoints) {
         this.buyerId = buyerId;
         this.email = email;
         this.fName = fName;
         this.lName = lName;
         this.password = password;
+        this.loyaltyPoints = loyaltyPoints;
     }
 
     public Buyer(int buyerId) {
@@ -65,6 +68,13 @@ public class Buyer {
         this.password = password;
     }
 
+    public int getLoyaltyPoints() {
+        return loyaltyPoints;
+    }
+
+    public void setLoyaltyPoints(int loyaltyPoints) {
+        this.loyaltyPoints = loyaltyPoints;
+    }
 
     @Override
     public String toString() {

@@ -27,10 +27,15 @@
         <input id="password" name="password" th:field="*{password}" type="text"/>
     </div>
     <div>
-        <input type="submit" value="Update Buyer"/>
+        <label for="loyaltyPoints">Loyalty Points:</label>
+        <input id="loyaltyPoints" name="loyaltyPoints" th:field="*{loyaltyPoints}" type="text"/>
     </div>
+    <div>
+        <input class="button-link" type="submit" value="Update Buyer"/>
+    </div>
+
 </form>
 
-<p><a th:href="@{/buyers/list}">Back to List</a></p>
+<p><a class="button-link" th:href="@{/buyers/list}">Back to List</a></p>
 </body>
 </html>

@@ -14,7 +14,13 @@ public interface BuyerMapper {
 
     int updateBuyer(Buyer buyer);
 
-    Buyer getBuyerByEmailAndPassword(String email, String password);
+    int getBuyerByEmailAndPassword(String email, String password);
+
+    int updateBuyerLoyaltyPoints(int buyerId, int loyaltyPoints);
+
+    Buyer getBuyerById(int id);
+
+    int deleteBuyer(int id);
 
 
 }

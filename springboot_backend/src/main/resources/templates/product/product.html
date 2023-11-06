@@ -5,7 +5,8 @@
     <title>Product Details</title>
 </head>
 <body>
-<div th:include="fragments/logout-fragment :: #logout-button"></div>
+<div th:replace="fragments/logout-fragment :: #logout-button"></div>
+
 <h1>Product Details</h1>
 
 <div th:if="${product}">

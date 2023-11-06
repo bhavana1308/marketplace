@@ -1,0 +1,14 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Buyer Information</title>
+    <link href="/static/css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="buyer-info">
+    <h1>Welcome, <span th:text="${buyerName}"></span> !</h1>
+    <p>Loyalty Points: <span th:text="${loyaltyPoints}"></span></p>
+</div>
+
+</body>
+</html>

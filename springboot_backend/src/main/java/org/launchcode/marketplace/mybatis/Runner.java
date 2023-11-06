@@ -5,6 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.launchcode.marketplace.model.Product;
+import org.launchcode.marketplace.model.PurchaseOrder;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -92,6 +93,10 @@ public class Runner {
 
             List<Product> list4 = productsMapper.getAllFromProducts();
             list4.forEach(t -> System.out.println(t));
+
+            PurchaseOrderMapper purchaseOrderMapper = session.getMapper(PurchaseOrderMapper.class);
+            List<PurchaseOrder> list5 = purchaseOrderMapper.getAllPurchaseOrders();
+            list5.forEach(t -> System.out.println(t));
 
 //            Product product = productsMapper.getByProductName("Shirts");
 //            System.out.println(product);

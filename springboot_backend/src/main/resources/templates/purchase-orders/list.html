@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Purchase Orders</title>
+    <link href="/static/css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div th:replace="fragments/logout-fragment :: #logout-button"></div>
+<h1>Purchase Orders</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Order ID</th>
+        <th>Order Number</th>
+        <th>Buyer ID</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="purchaseOrder : ${purchaseOrders}">
+        <td th:text="${purchaseOrder.orderId}"></td>
+        <td th:text="${purchaseOrder.orderNumber}"></td>
+        <td th:text="${purchaseOrder.buyer.buyerId}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
