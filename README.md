@@ -1,4 +1,4 @@
-Marketplace Application
+# Marketplace Application
 
 The Marketplace application is a simple web-based platform that seamlessly integrates SQL queries executed through MyBatis and allows Users can log in, explore product listings, add items to their cart, remove items from their cart, calculate loyalty points, generate purchase orders, manage buyer information, and delete buyers.User logins are validated against a "buyers" table in a MySQL database.
 
