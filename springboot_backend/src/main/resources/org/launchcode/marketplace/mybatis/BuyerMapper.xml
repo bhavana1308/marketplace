@@ -35,7 +35,7 @@
         SELECT * FROM Buyer;
     </select>
 
-    <select id="getBuyerByEmailAndPassword" resultType="int">
+    <select id="getBuyerByEmailAndPassword" resultType="java.lang.Integer">
         SELECT buyerId FROM buyer
         WHERE email = #{email} AND password = #{password}
     </select>

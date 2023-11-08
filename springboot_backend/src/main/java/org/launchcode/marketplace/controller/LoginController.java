@@ -34,13 +34,13 @@ public class LoginController {
     @PostMapping
     public String performLogin(@RequestParam String email, @RequestParam String password, HttpSession session) {
 
-        int buyerId = buyerMapper.getBuyerByEmailAndPassword(email, password);
+        Integer buyerId  = buyerMapper.getBuyerByEmailAndPassword(email, password);
 
-        if (buyerId > 0) {
+        if ( buyerId!= null && buyerId.intValue() > 0 ) {
             session.setAttribute("buyerId", buyerId);
             return "redirect:/productList";
         } else {
-            return "loginError";
+            return "redirect:/login/loginError";
         }
     }
 
