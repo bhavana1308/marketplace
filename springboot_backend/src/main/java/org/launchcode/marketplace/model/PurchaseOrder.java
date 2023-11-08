@@ -42,12 +42,8 @@ public class PurchaseOrder {
     public void generateOrderNumber() {
         long timestamp = new Date().getTime();
         String orderNumber = String.valueOf(timestamp);
+        this.setOrderNumber(orderNumber);
 
-        try {
-            this.setOrderNumber(orderNumber);
-        } catch (NumberFormatException e) {
-            System.out.println("Number format exception");
-        }
     }
 }
 

@@ -82,6 +82,10 @@ public class CheckoutController {
             purchaseOrderMapper.insertPurchaseOrder(purchaseOrder);
             model.addAttribute("orderNumber", purchaseOrder.getOrderNumber());
 
+            for (CartList cartItem : cartItems) {
+                cartListMapper.deleteByCartListId(cartItem.getCartId());
+            }
+
             model.addAttribute("buyerName", buyer.getFirstName());
             model.addAttribute("loyaltyPoints", loyaltyPointsEarned + buyer.getLoyaltyPoints());
 

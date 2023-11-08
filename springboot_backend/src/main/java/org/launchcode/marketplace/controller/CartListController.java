@@ -55,7 +55,6 @@ public class CartListController {
             model.addAttribute("cartItems", cartItems);
             model.addAttribute("totalPrice", totalPrice);
 
-
             return "cartlist";
         } else {
             return "redirect:/login";
