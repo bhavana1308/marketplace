@@ -36,10 +36,10 @@ To complete your purchase, click on the "Checkout" button. You'll then receive a
 ### Retrieve Order Details
 Enhancing user experience, the application now includes a feature to store and retrieve detailed order information for each completed purchase. Click on the Order Number hyperlink in your confirmation to access comprehensive order details, including:
 
-Order Number
-Date of Purchase
-List of Items Purchased
-Total Cost
+* Order Number
+* Date of Purchase
+* List of Items Purchased
+* Total Cost
 
 ### Why Retrieve Order Details?
 This feature enables users to conveniently review and track specifics of each completed order, offering valuable insights for future inquiries, returns, or maintaining a personal purchase history.
