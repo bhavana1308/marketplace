@@ -1,6 +1,6 @@
 # Marketplace Application
 
-The Marketplace application is a simple web-based platform that seamlessly integrates SQL queries executed through MyBatis and allows Users can log in, explore product listings, add items to their cart, remove items from their cart, calculate loyalty points, generate purchase orders, manage buyer information, and delete buyers.User logins are validated against a "buyers" table in a MySQL database.
+The Marketplace application is a simple web-based platform that seamlessly integrates SQL queries executed through MyBatis and allows Users can log in, explore product listings, add items to their cart, remove items from their cart, calculate loyalty points, generate purchase orders,retrieve order details from order number hyperlink manage buyer information, and delete buyers.User logins are validated against a "buyers" table in a MySQL database.
 
 
 
@@ -32,3 +32,17 @@ The application calculates loyalty points based on a buyer's purchase amount.
 ### Finalize Your Order
 To complete your purchase, click on the "Checkout" button. You'll then receive a confirmation of your successful order with Order Number.
 
+## Order Details Retrieval
+### Retrieve Order Details
+Enhancing user experience, the application now includes a feature to store and retrieve detailed order information for each completed purchase. Click on the Order Number hyperlink in your confirmation to access comprehensive order details, including:
+
+Order Number
+Date of Purchase
+List of Items Purchased
+Total Cost
+
+### Why Retrieve Order Details?
+This feature enables users to conveniently review and track specifics of each completed order, offering valuable insights for future inquiries, returns, or maintaining a personal purchase history.
+
+### Technical Implementation
+Order details retrieval is seamlessly integrated into the application using MyBatis for SQL queries. Relevant order details are fetched from the database, providing users with a dynamic and informative display through the React front-end.
