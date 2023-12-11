@@ -1,0 +1,154 @@
+html {
+    background-color: #66CDAA;
+    font-size: 16px;
+    
+}
+
+
+body {
+    width: 100vw;
+    height: fit-content;
+    font-family: Arial, sans-serif;
+    background-color: #66CDAA;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    width: 1000px; 
+    height: auto;
+    align-items: left;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #66CDAA;
+
+}
+
+.container1 {
+    width: 1000px; 
+    height: 70vw;
+    align-items: left;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #66CDAA;
+
+}
+
+
+
+table {
+     width: 100%; 
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #fff;
+    background-color: #66CDAA;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #fff;
+}
+
+th {
+    background-color: #66CDAA;
+}
+
+tr {
+    background-color: #66CDAA;
+}
+
+tr:hover {
+    background-color: #66CDAA;
+}
+
+.product-image {
+    max-width: 150px;
+    max-height: 150px;
+    margin-right: 20px;
+}
+
+.button-link {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #9370DB;
+    border-radius: 5px;
+    background-color: #DB7093;
+    border-color: #DB7093;
+    padding: 10px 20px;
+
+}
+
+.button-link:hover {
+   background-color: #ad1e23;
+}
+
+#logout-button {
+  position: absolute;
+    top: 10px;
+    right: 20px;
+    
+
+}
+
+
+#logout-button button {
+    padding: 8px 20px;
+    margin: 5px;
+ 
+}
+
+.logout-message{
+    display: block;
+    width: 80vw;
+    height: 50vw;
+    top: 10px;
+    align-items: left;
+    font-size: large;
+    font : bold;
+    color: #000000f3;
+}
+
+
+
+.buyer-info {
+    display:block;
+    width: 100vw;
+    margin-left: 20px;
+    align-items: left;
+    padding: 10px;
+    background-color: #F5DEB3;
+    font-size: 16px;
+ }
+
+
+
+div.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: inline-block;
+    width: 150px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+input[type="text"]{
+    width: 30%;
+    height: 20px;
+}
+
+input[type="number"]{
+   width: 10%;
+   height: 20px;
+   margin-bottom: 10px;
+
+}
+
+

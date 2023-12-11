@@ -17,6 +17,7 @@
         <typeAlias alias="Product" type="org.launchcode.marketplace.model.Product"/>
         <typeAlias alias="PurchaseOrder" type="org.launchcode.marketplace.model.PurchaseOrder"/>
         <typeAlias alias="LoyaltyPoints" type="org.launchcode.marketplace.model.LoyaltyPoints"/>
+        <typeAlias alias="OrderDetail" type="org.launchcode.marketplace.model.OrderDetail"/>
     </typeAliases>
 
     <environments default="development">
@@ -39,6 +40,7 @@
         <mapper resource="org/launchcode/marketplace/mybatis/ProductsMapper.xml"/>
         <mapper resource="org/launchcode/marketplace/mybatis/LoyaltyPointsMapper.xml"/>
         <mapper resource="org/launchcode/marketplace/mybatis/PurchaseOrderMapper.xml"/>
+        <mapper resource="org/launchcode/marketplace/mybatis/OrderDetailMapper.xml"/>
     </mappers>
 
 </configuration>

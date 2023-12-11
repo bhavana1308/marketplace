@@ -17,6 +17,10 @@ public interface PurchaseOrderMapper {
     int updatePurchaseOrder(PurchaseOrder purchaseOrder);
 
     int deletePurchaseOrder(int purchaseId);
+
+    PurchaseOrder getOrderByOrderNumber(String orderNumber);
+
+    List<PurchaseOrder> getPurchaseOrdersByBuyerId(int buyerId);
 }
 
 

@@ -11,12 +11,14 @@ import org.launchcode.marketplace.mybatis.PurchaseOrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
 @Controller
+@CrossOrigin
 public class CheckoutController {
 
     @Autowired
@@ -28,7 +30,7 @@ public class CheckoutController {
     @Autowired
     private final CartListMapper cartListMapper;
 
-    @Autowired
+
     public CheckoutController(
             BuyerMapper buyerMapper,
             PurchaseOrderMapper purchaseOrderMapper,

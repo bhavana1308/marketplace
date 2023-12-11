@@ -1,0 +1,29 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.launchcode.marketplace.mybatis.OrderDetailMapper">
+
+    <resultMap id="OrderDetailResultMap" type="org.launchcode.marketplace.model.OrderDetail" autoMapping="false">
+        <id property="orderNumber" column="orderNumber"/>
+        <result property="orderDate" column="orderDate"/>
+        <result property="orderItems" column="orderItems" javaType="java.lang.String" jdbcType="VARCHAR"
+                typeHandler="org.apache.ibatis.type.StringTypeHandler"/>
+        <result property="totalOrderPrice" column="totalOrderPrice"/>
+    </resultMap>
+
+
+    <insert id="insertOrderDetail" parameterType="org.launchcode.marketplace.model.OrderDetail">
+        INSERT INTO OrderDetail (orderNumber, orderDate, orderItems, totalOrderPrice)
+        VALUES (#{orderNumber}, #{orderDate}, #{orderItems}, #{totalOrderPrice})
+    </insert>
+
+
+    <select id="getOrderDetailByOrderNumber" resultMap="OrderDetailResultMap">
+        SELECT orderNumber, orderDate, orderItems, totalOrderPrice
+        FROM OrderDetail
+        WHERE orderNumber = #{orderNumber}
+    </select>
+
+</mapper>

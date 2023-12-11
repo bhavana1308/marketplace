@@ -1,5 +1,5 @@
 html {
-    background-color: #FFC0CB;
+    background-color: #66CDAA;
 }
 
 
@@ -20,44 +20,62 @@ body {
 }
 
 
-.login-form h2 {
-    color: #333;
+.login-form,h1,h2{
+    color: #000000;
 }
+
+
 
 
 .form-group {
-    margin: 10px 0;
-}
-
-
-label {
+    margin:  0;
     font-weight: bold;
-    color: #444;
+    color: #00000ff5;
 }
 
 
-.form-group label,
-.form-group input {
+
+
+
+input[type="text"],
+input[type="password"] {
     width: 100%;
     padding: 10px;
     margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
-
 }
 
 
 
+
 button {
-    background-color: #4CAF50;
+    background-color: #DB7093;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
+    margin: 10px;
 }
 
 
 button:hover {
-    background-color: #45a049;
+    background-color: #ad1e23;
+}
+
+.button-link {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #9370DB;
+    border-radius: 5px;
+    background-color: #DB7093;
+    border-color: #DB7093;
+    padding: 5px 16px;
+
+}
+
+.button-link:hover {
+   background-color: #ad1e23;
 }

@@ -7,19 +7,30 @@
     <resultMap id="resultPurchaseOrder" type="org.launchcode.marketplace.model.PurchaseOrder" autoMapping="false">
         <id property="orderId" column="orderId"/>
         <result property="orderNumber" column="orderNumber"/>
+        <result property="orderDate" column="orderDate"/>
         <association property="buyer" javaType="org.launchcode.marketplace.model.Buyer">
             <id property="buyerId" column="buyerId"/>
+            <result property="firstName" column="fName"/>
         </association>
+
     </resultMap>
+
 
     <select id="selectPurchaseOrderById" parameterType="int" resultMap="resultPurchaseOrder">
         SELECT * FROM PurchaseOrder WHERE orderId = #{orderId}
     </select>
 
     <select id="getAllPurchaseOrders" resultMap="resultPurchaseOrder">
-        SELECT PurchaseOrder.orderId, PurchaseOrder.orderNumber, Buyer.buyerId
+        SELECT PurchaseOrder.orderId, PurchaseOrder.orderNumber, Buyer.buyerId, Buyer.fName, PurchaseOrder.orderDate
         FROM PurchaseOrder
         LEFT JOIN Buyer ON PurchaseOrder.buyerId = Buyer.buyerId
+    </select>
+
+    <select id="getPurchaseOrdersByBuyerId" parameterType="int" resultMap="resultPurchaseOrder">
+        SELECT PurchaseOrder.orderId, PurchaseOrder.orderNumber, Buyer.buyerId, Buyer.fName, PurchaseOrder.orderDate
+        FROM PurchaseOrder
+        LEFT JOIN Buyer ON PurchaseOrder.buyerId = Buyer.buyerId
+        WHERE Buyer.buyerId = #{buyerId}
     </select>
 
 
@@ -32,8 +43,14 @@
     </delete>
 
     <insert id="insertPurchaseOrder" parameterType="org.launchcode.marketplace.model.PurchaseOrder">
-        INSERT INTO PurchaseOrder(orderNumber, buyerId) VALUES (#{orderNumber}, #{buyer.buyerId})
+        INSERT INTO PurchaseOrder(orderNumber, buyerId,orderDate)
+        VALUES (#{orderNumber}, #{buyer.buyerId}, #{orderDate})
     </insert>
+
+
+    <select id="getOrderByOrderNumber" parameterType="String" resultMap="resultPurchaseOrder">
+        SELECT * FROM PurchaseOrder WHERE orderNumber = #{orderNumber}
+    </select>
 
 
 </mapper>

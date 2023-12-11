@@ -16,8 +16,12 @@ public interface CartListMapper {
 
     int updateCartList(CartList cartList);
 
+    void updateCartItemsOrderNumber(String orderNumber);
+
     int deleteByCartListId(int id);
 
     List<CartList> getCartItemsWithProducts();
+
+    List<CartList> getCartItemsByOrderNumber(String orderNumber);
 
 }

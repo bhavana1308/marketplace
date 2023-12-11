@@ -1,7 +1,9 @@
 package org.launchcode.marketplace.model;
 
 
+import java.time.LocalDate;
 import java.util.Date;
+
 
 public class PurchaseOrder {
 
@@ -10,6 +12,8 @@ public class PurchaseOrder {
     private Buyer buyer;
 
     private String orderNumber;
+
+    private LocalDate orderDate;
 
 
     public PurchaseOrder() {
@@ -29,6 +33,14 @@ public class PurchaseOrder {
 
     public void setOrderNumber(String orderNumber) {
         this.orderNumber = orderNumber;
+    }
+
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
     }
 
     public Buyer getBuyer() {

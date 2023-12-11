@@ -12,12 +12,18 @@
     <resultMap id="resultCartList" type="org.launchcode.marketplace.model.CartList" autoMapping="false">
         <result property="cartId" column="cartId"/>
         <result property="productId" column="productId"/>
+        <result property="orderId" column="orderId"/>
         <result property="quantity" column="quantity"/>
         <association property="product" javaType="org.launchcode.marketplace.model.Product">
             <id property="productId" column="productId"/>
             <result property="productName" column="productName"/>
             <result property="price" column="price"/>
         </association>
+        <association property="purchaseOrder" javaType="org.launchcode.marketplace.model.PurchaseOrder">
+            <id property="orderId" column="orderId"/>
+            <result property="orderNumber" column="orderNumber"/>
+        </association>
+
     </resultMap>
 
     <select id="getAllFromCartList" resultMap="resultCartList">
@@ -38,5 +44,22 @@
         FROM CartList
         JOIN Product ON CartList.productId = Product.productId;
     </select>
+
+    <select id="getCartItemsByOrderNumber" parameterType="String" resultMap="resultCartList">
+        SELECT CartList.cartId, CartList.productId, CartList.quantity,
+        Product.productName, Product.price,
+        PurchaseOrder.orderNumber
+        FROM CartList
+        LEFT JOIN Product ON CartList.productId = Product.productId
+        LEFT JOIN PurchaseOrder ON CartList.orderId = PurchaseOrder.orderId
+        AND PurchaseOrder.orderNumber = #{orderNumber};
+
+    </select>
+
+    <update id="updateCartItemsOrderId">
+        UPDATE CartList
+        SET orderNumber = #{purchaseOrder.orderNumber}
+
+    </update>
 
 </mapper>

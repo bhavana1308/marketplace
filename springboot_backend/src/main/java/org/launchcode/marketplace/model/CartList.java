@@ -6,6 +6,11 @@ public class CartList {
     private int cartId;
     private int quantity;
     private Product product;
+    private int orderId;
+
+    private double totalProductPrice;
+
+    private PurchaseOrder purchaseOrder;
 
     public CartList(int productId, int quantity) {
         this.productId = productId;
@@ -16,6 +21,13 @@ public class CartList {
 
     }
 
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
 
     public int getCartId() {
         return cartId;
@@ -47,6 +59,22 @@ public class CartList {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public double getTotalProductPrice() {
+        return totalProductPrice;
+    }
+
+    public void setTotalProductPrice(double totalProductPrice) {
+        this.totalProductPrice = totalProductPrice;
+    }
+
+    public PurchaseOrder getPurchaseOrder() {
+        return purchaseOrder;
+    }
+
+    public void setPurchaseOrder(PurchaseOrder purchaseOrder) {
+        this.purchaseOrder = purchaseOrder;
     }
 
     @Override

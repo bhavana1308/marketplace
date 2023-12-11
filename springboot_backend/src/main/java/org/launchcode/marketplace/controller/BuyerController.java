@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @Controller
 @RequestMapping("/buyers")
 public class BuyerController {
@@ -22,6 +23,7 @@ public class BuyerController {
     }
 
     @GetMapping("/list")
+
     public String listBuyers(Model model) {
         List<Buyer> buyers = buyerMapper.getAllFromBuyer();
         model.addAttribute("buyers", buyers);
@@ -63,6 +65,11 @@ public class BuyerController {
     public String deleteBuyer(@RequestParam("buyerId") int buyerId) {
         buyerMapper.deleteBuyer(buyerId);
         return "redirect:/buyers/list";
+    }
+
+    @GetMapping("/list/json")
+    public List<Buyer> listBuyers() {
+        return buyerMapper.getAllFromBuyer();
     }
 
 
